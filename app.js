@@ -1,12 +1,12 @@
-/* global process */
-var express = require("express");
-var app = express();
-let port = process.env.PORT || 3000;
+const express = require("express");
 
-app.get("/", function (req, res) {
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
   res.send("I-Evolve... is live");
 });
 
-app.listen(port, function () {
-  // console.log(`App listening on port ${port}`);
+app.listen(port, () => {
+  // console.log(`Listening on port ${port}`);
 });
