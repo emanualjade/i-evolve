@@ -8,7 +8,6 @@ const VENDOR_LIBS = [
   'redux',
   'react-redux',
   'react-dom',
-  'faker',
   'react-input-range',
   'redux-form',
   'redux-thunk',
