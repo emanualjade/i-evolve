@@ -1,7 +1,7 @@
 before_script:
   - npm install;
 script:
-  - node app.js &
+  - NODE_ENV=production node app.js &
   - npm test
 language: node_js
 env:
