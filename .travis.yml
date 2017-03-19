@@ -1,8 +1,8 @@
 before_script:
-  - npm install;
+  - yarn install;
 script:
   - NODE_ENV=production node app.js &
-  - npm test
+  - yarn test
 language: node_js
 env:
   - PORT=7777

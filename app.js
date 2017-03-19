@@ -8,7 +8,8 @@ const webpackConfig = require('./webpack.config.js');
 const app = express();
 
 // SERVER ROUTES ...
-app.get('/hello', (req, res) => res.send({ hi: 'there' }));
+// app.get('/hello', (req, res) => res.send({ hi: 'there' }));
+app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')));
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(webpackMiddleWare(webpack(webpackConfig)));

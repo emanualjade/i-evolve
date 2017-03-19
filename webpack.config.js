@@ -5,12 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VENDOR_LIBS = [
   'react',
   'lodash',
-  'redux',
-  'react-redux',
   'react-dom',
-  'react-input-range',
-  'redux-form',
-  'redux-thunk',
 ];
 
 module.exports = {
