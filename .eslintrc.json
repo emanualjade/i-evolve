@@ -4,11 +4,16 @@
         "node": true,
         "browser": true
     },
-    "extends": "airbnb-base",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "extends": ["airbnb-base", "plugin:react/recommended"],
     "rules": {
       "quotes": [
         "error",
-        "double"
+        "single"
       ]
     }
 }
