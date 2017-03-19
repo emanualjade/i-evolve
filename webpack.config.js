@@ -6,6 +6,7 @@ const VENDOR_LIBS = [
   'react',
   'lodash',
   'react-dom',
+  'react-router-dom',
 ];
 
 module.exports = {
