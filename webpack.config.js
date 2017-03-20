@@ -18,16 +18,22 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
   },
+  devtool: 'source-map',
+  stats: {
+    colors: true,
+    reasons: true,
+    chunks: true,
+  },
   module: {
     rules: [
       {
-        use: 'babel-loader',
         test: /\.js$/,
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
-        use: ['style-loader', 'css-loader'],
         test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
