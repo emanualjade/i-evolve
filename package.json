@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "NODE_ENV=production npm run clean && webpack -p",
-    "serve": "webpack-dev-server",
-    "test": "eslint ./ && node test.js",
+    "dev": "webpack-dev-server",
+    "test": "node test.js",
+    "lint": "eslint src/**/*.js app.js webpack.config.js",
     "start": "node app.js"
   },
   "author": "Emanual Jade <emanualjade@gmail.com>",
@@ -31,11 +32,11 @@
     "css-loader": "^0.27.3",
     "eslint": "^3.17.1",
     "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-loader": "^1.6.3",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.1",
     "rimraf": "^2.6.1",
-    "style-loader": "^0.14.1",
-    "webpack-dev-server": "^2.2.0-rc.0"
+    "style-loader": "^0.14.1"
   },
   "repository": "git@github.com:emanualjade/i-evolve.git"
 }
