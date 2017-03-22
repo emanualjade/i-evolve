@@ -19,6 +19,10 @@ module.exports = {
     filename: '[name].[chunkhash].js',
   },
   devtool: 'source-map',
+  devServer: {
+    // publicPath: '/src/',
+    historyApiFallback: true,
+  },
   stats: {
     colors: true,
     reasons: true,
@@ -35,6 +39,11 @@ module.exports = {
       {
         test: /\.js$/,
         use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
         exclude: /node_modules/,
       },
       {

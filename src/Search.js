@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
+import preload from './data.json';
+import ShowCard from './ShowCard';
 
-class Search extends Component {
-  render() {
-    return (
-      <h1>Search page!! {this.props.stuff}</h1>
-    );
-  }
-}
-
-Search.propTypes = {
-  stuff: PropTypes.string,
-};
+const Search = () => (
+  <div className="search">
+    {preload.shows.map(show => (
+      <ShowCard key={show.imbID} show={show} />
+    ))}
+  </div>
+);
 
 export default Search;
