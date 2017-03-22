@@ -9,6 +9,7 @@ import '../style/normalize.css';
 import '../style/style.css';
 import Home from './Home';
 import About from './About';
+import Search from './Search';
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
         <hr />
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
+        <Route path="/search" component={Search}/>
       </div>
     </div>
   </Router>
