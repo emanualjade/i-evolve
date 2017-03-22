@@ -4,9 +4,15 @@ import ShowCard from './ShowCard';
 
 const Search = () => (
   <div className="search">
-    {preload.shows.map(show => (
-      <ShowCard key={show.imbID} show={show} />
-    ))}
+    <header>
+      <h1>svideo</h1>
+      <input placeholder="Search" />
+    </header>
+    <div>
+      {preload.shows.map(show => (
+        <ShowCard key={show.imbID} show={show} />
+      ))}
+    </div>
   </div>
 );
 
