@@ -17,6 +17,7 @@ const App = () => (
       <div className='landing'>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
+        <Link to="/search">Search</Link>
         <hr />
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
