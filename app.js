@@ -6,15 +6,12 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config.js');
 
 const app = express();
-
-// SERVER ROUTES ...
-// app.get('/hello', (req, res) => res.send({ hi: 'there' }));
-app.get('/about', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')));
+app.use(express.static('dist'));
+app.use('/public', express.static('./public'));
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(webpackMiddleWare(webpack(webpackConfig)));
 } else {
-  app.use(express.static('dist'));
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
