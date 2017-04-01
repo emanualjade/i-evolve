@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import preload from './data.json';
 import ShowCard from './ShowCard';
+
+const { arrayOf, shape, string } = React.PropTypes;
 
 class Search extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: 'this is the default string',
+      searchTerm: '',
     };
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
   }
@@ -28,7 +29,7 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows
+          {this.props.shows
             .filter(show => `${show.title} ${show.description}`
               .toUpperCase().indexOf(this.state.searchTerm.toUpperCase()) >= 0)
             .map(show => (
@@ -40,5 +41,11 @@ class Search extends Component {
   }
 }
 
+Search.propTypes = {
+  shows: arrayOf(shape({
+    title: string,
+    description: string,
+  })),
+};
 
 export default Search;
