@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server",
     "test": "node test.js",
     "lint": "eslint src/**/*.js app.js webpack.config.js",
-    "start": "NODE_ENV=production node app.js"
+    "start": "NODE_ENV=production node app.js",
+    "debug": "NODE_ENV=production node --debug-brk --inspect app.js"
   },
   "author": "Emanual Jade <emanualjade@gmail.com>",
   "license": "ISC",
