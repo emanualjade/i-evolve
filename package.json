@@ -6,21 +6,17 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "NODE_ENV=production npm run clean && webpack -p",
+
     "test": "node test.js",
     "lint": "eslint src/**/*.js app.js webpack.config.js",
+
     "dev": "webpack-dev-server",
 
     "prestart": "node buildScripts/startMessage.js",
     "start": "node app.js",
 
-    "prestart:dev": "node buildScripts/startMessage.js",
-    "start:dev": "npm-run-all --parallel security-check dev",
-
-    "prestart:prod": "NODE_ENV=production node buildScripts/startMessage.js",
-    "start:prod": "NODE_ENV=production node app.js",
-
-    "predebug": "NODE_ENV=production node buildScripts/startMessage.js",
-    "debug": "NODE_ENV=production node --debug-brk --inspect app.js",
+    "predebug": "node buildScripts/startMessage.js",
+    "debug": "node --debug-brk --inspect app.js",
 
     "security-check": "nsp check"
   },
