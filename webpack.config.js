@@ -10,12 +10,13 @@ const VENDOR_LIBS = [
 ];
 
 module.exports = {
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    bundle: './src/index.js',
+    bundle: './index.js',
     vendor: VENDOR_LIBS,
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: '[name].[chunkhash].js',
   },
@@ -58,7 +59,7 @@ module.exports = {
       names: ['vendor', 'manifest'],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: './index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {
