@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-const {removeEmpty} = require('webpack-config-utils');
+const { removeEmpty } = require('webpack-config-utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
