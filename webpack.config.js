@@ -10,13 +10,19 @@ const VENDOR_LIBS = [
   'react-router-dom',
 ];
 
+const devEntry = {
+  app: './index.js',
+};
+
+const prodEntry = {
+  app: './index.js',
+  vendor: VENDOR_LIBS,
+};
+
 module.exports = (env) => {
   const config = {
     context: path.resolve(__dirname, 'src'),
-    entry: {
-      app: './index.js',
-      vendor: VENDOR_LIBS,
-    },
+    entry: env.prod ? prodEntry : devEntry,
     output: {
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
