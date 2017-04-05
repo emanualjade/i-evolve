@@ -5,18 +5,25 @@
   "main": "app.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "NODE_ENV=production npm run clean && webpack -p",
+
+    "prebuild": "yarn run clean",
+    "build": "webpack -p --env.prod",
+
+    "prebuild:dev": "yarn run clean",
+    "build:dev": "webpack --env.dev",
 
     "test": "node test.js",
     "lint": "eslint src/**/*.js app.js webpack.config.js",
-
-    "dev": "webpack-dev-server",
+    "dev": "webpack-dev-server --env.dev",
 
     "prestart": "node buildScripts/startMessage.js",
     "start": "node app.js",
 
-    "predebug": "node buildScripts/startMessage.js",
-    "debug": "node --debug-brk --inspect app.js",
+    "predebug:server": "node buildScripts/startMessage.js",
+    "debug:server": "node --debug-brk --inspect app.js",
+
+    "debug": "yarn run debug:webpack",
+    "debug:webpack": "node --inspect --debug-brk node_modules/.bin/webpack --env.debug",
 
     "security-check": "nsp check"
   },
@@ -51,5 +58,8 @@
     "rimraf": "^2.6.1",
     "style-loader": "^0.14.1"
   },
-  "repository": "git@github.com:emanualjade/i-evolve.git"
+  "repository": "git@github.com:emanualjade/i-evolve.git",
+  "engines": {
+    "node": "6.10.0"
+  }
 }
