@@ -5,26 +5,19 @@
   "main": "app.js",
   "scripts": {
     "clean": "rimraf dist",
-
     "prebuild": "yarn run clean",
     "build": "webpack -p --env.prod",
-
     "prebuild:dev": "yarn run clean",
     "build:dev": "webpack --env.dev",
-
     "test": "node test.js",
     "lint": "eslint src/**/*.js app.js webpack.config.js",
     "dev": "webpack-dev-server --env.dev",
-
     "prestart": "node buildScripts/startMessage.js",
     "start": "node app.js",
-
     "predebug:server": "node buildScripts/startMessage.js",
     "debug:server": "node --debug-brk --inspect app.js",
-
     "debug": "yarn run debug:webpack",
     "debug:webpack": "node --inspect --debug-brk node_modules/.bin/webpack --env.debug",
-
     "security-check": "nsp check"
   },
   "author": "Emanual Jade <emanualjade@gmail.com>",
@@ -56,7 +49,8 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.10.1",
     "rimraf": "^2.6.1",
-    "style-loader": "^0.14.1"
+    "style-loader": "^0.14.1",
+    "webpack-config-utils": "^2.3.0"
   },
   "repository": "git@github.com:emanualjade/i-evolve.git",
   "engines": {

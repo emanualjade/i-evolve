@@ -3690,6 +3690,10 @@ qs@6.4.0, qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
+qs@^5.2.0:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-5.2.1.tgz#801fee030e0b9450d6385adc48a4cc55b44aedfc"
+
 query-string@^4.1.0:
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-4.3.2.tgz#ec0fd765f58a50031a3968c2431386f8947a5cdd"
@@ -4643,6 +4647,18 @@ wbuf@^1.1.0, wbuf@^1.4.0:
   resolved "https://registry.yarnpkg.com/wbuf/-/wbuf-1.7.2.tgz#d697b99f1f59512df2751be42769c1580b5801fe"
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webpack-combine-loaders@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/webpack-combine-loaders/-/webpack-combine-loaders-2.0.0.tgz#c8cd033ec797748b569c7823f54d4481670f3e05"
+  dependencies:
+    qs "^5.2.0"
+
+webpack-config-utils@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/webpack-config-utils/-/webpack-config-utils-2.3.0.tgz#49aa66984a85a7c2c9991343137e8dd11b610afa"
+  dependencies:
+    webpack-combine-loaders "2.0.0"
 
 webpack-dev-middleware@^1.10.1, webpack-dev-middleware@^1.9.0:
   version "1.10.1"

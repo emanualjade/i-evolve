@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
-
+const {removeEmpty} = require('webpack-config-utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
@@ -14,13 +14,13 @@ module.exports = (env) => {
   const config = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-      bundle: './index.js',
+      app: './index.js',
       vendor: VENDOR_LIBS,
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-      filename: '[name].[chunkhash].js',
+      filename: env.prod ? '[name].[chunkhash].js' : 'bundle.[name].js',
       pathinfo: !!env.dev,
     },
     devtool: env.prod ? 'source-map' : 'eval',
@@ -57,19 +57,19 @@ module.exports = (env) => {
         },
       ],
     },
-    plugins: [
-      new webpack.optimize.CommonsChunkPlugin({
-        names: ['vendor', 'manifest'],
-      }),
+    plugins: removeEmpty([
       new HtmlWebpackPlugin({
         template: './index.html',
       }),
-      new webpack.DefinePlugin({
+      env.prod ? new webpack.optimize.CommonsChunkPlugin({
+        names: ['vendor', 'manifest'],
+      }) : undefined,
+      env.prod ? new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production'),
         },
-      }),
-    ],
+      }) : undefined,
+    ]),
   };
   if (env.debug) {
     console.log(config) // eslint-disable-line
